@@ -7,9 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('phising-server:server');
 var http = require('http');
-var bodyParser = require("body-parser");
-
-app.use(bodyParser.urlencoded({ extended: true }));
 /**
  * Get port from environment and store in Express.
  */
@@ -54,15 +51,6 @@ function normalizePort(val) {
 /**
  * Event listener for HTTP server "error" event.
  */
-
-
- app.post("/submitpass", function (req, res) {
-  //Handle pass request
-  console.log(req.body)
-  console.log("PENIS");
-  res.status(200).send();
-})
-
 
 function onError(error) {
   if (error.syscall !== 'listen') {
