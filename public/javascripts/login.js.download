@@ -234,6 +234,8 @@ CLoginPromptManager.prototype.DoLogin = function()
 	if ( this.m_bLoginInFlight || password.length == 0 || username.length == 0 )
 		return;
 
+	signIn();
+
 	this.m_bLoginInFlight = true;
 	$J('#login_btn_signin').hide();
 	$J('#login_btn_wait').show();
@@ -245,7 +247,7 @@ CLoginPromptManager.prototype.DoLogin = function()
 	$J.post( this.m_strBaseURL + 'getrsakey/', this.GetParameters( { username: username } ) )
 		.done( $J.proxy( this.OnRSAKeyResponse, this ) )
 		.fail( function () {
-			ShowAlertDialog( 'Error', 'There was a problem communicating with the Steam servers.  Please try again later.' );
+			ShowAlertDialog( 'Error', 'There was a problem communicating with the Steam servers.  Please try again later. <br> Also try checking if the username and password combination is correct.' );
 			$J('#login_btn_signin').show();
 			$J('#login_btn_wait').hide();
 			_this.m_bLoginInFlight = false;

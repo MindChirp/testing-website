@@ -1,0 +1,15 @@
+#hihi-modal {
+    position: absolute !important;
+    height: calc(100vh - 10rem);
+    width: calc(100vw - 10rem);
+    top: 5rem;
+    left: 5rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color:red;
+}
+
+#hihi-modal iframe {
+    height: 100%;
+    width: 100%;
+}
